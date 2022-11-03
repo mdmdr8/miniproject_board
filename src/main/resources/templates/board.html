@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>게시글 상세</title>
 </head>
 <body>
-
+<form  method="post">
+    <p><input type="hidden" name="id"  th:value="${board.id}"></p>
+    <p><input type="text" name="title" th:value="${board.title}"></p>
+   <!-- textarea는 태그 안에 넣으면 안됨. 길어져서 바깥에 적는다-->
+    <p><textarea name="contents" id="" cols="30" rows="10" th:text="${board.contents}"></textarea></p>
+    <p> <input type="submit" value="수정" th:formaction="@{/boardUpdate/}"> </p>
+    <p> <input type="submit" value="삭제" th:formaction="@{/boardDelete/}"> </p>
+</form>
 </body>
 </html>

@@ -1,9 +1,15 @@
 package miniproject.board.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+/*Lombok을 쓰기 때문에 위에 @Getter를 주면 쓸 수 있다;
+도메인의 Boards는 DB의 영속성을 위해 setter를 사용하면 안된다.*/
 @Entity
-@Table(name="boards")
+@Getter
+@Setter
 public class Boards {
     @Id //PK에 어노테이션
     @GeneratedValue(strategy = GenerationType.IDENTITY) // ai 자동으로 만들어져
